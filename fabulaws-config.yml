@@ -1,7 +1,7 @@
   instance_settings:
     # http://uec-images.ubuntu.com/releases/trusty/release/
     ami: ami-b2e3c6d8 # us-east-1 14.04.3 LTS 64-bit w/EBS-SSD root store
-    key_prefix: 'fabulaws-'
+    key_prefix: 'fabutest-'
     admin_groups: [admin, sudo]
     run_upgrade: true
     # Secure directories, volume, and filesystem info
@@ -26,9 +26,12 @@
   disable_known_hosts: true
   ssh_keys: deployment/users/
   password_names: [database_password, broker_password, smtp_password,
-                   newrelic_license_key, newrelic_api_key]
+                   newrelic_license_key, newrelic_api_key, s3_secret]
   project: fabutest
-  settings_migrations: fabutest.settings_production
+  wsgi_app: fabutest.wsgi:application
+  requirements_file: requirements.txt
+  requirements_sdists:
+  settings_migrations: fabutest.local_settings
   static_html:
     upgrade_message: deployment/templates/html/503.html
     healthcheck_override: deployment/templates/html/healthcheck.html
@@ -119,8 +122,8 @@
       cache: t1.micro
       db-master: t1.micro
       db-slave: t1.micro
-      web: t1.micro
-      worker: t1.micro
+      web: m1.small
+      worker: m1.small
 
 # Mapping of Fabric environment names to AWS load balancer names.  Load
 # balancers can be configured in the AWS Management Console.
@@ -154,13 +157,13 @@
       db-master: 100
       db-slave: 100
       web: 10
-      worker: 100
+      worker: 50
     testing:
       cache: 10
       db-master: 100
       db-slave: 100
       web: 10
-      worker: 100
+      worker: 50
 
 # Mapping of Fabric environment and role to Elastic Block Device volume types
 # Use SSD-backed storage (gp2) for all servers. Change to 'standard' for slower
@@ -175,18 +178,10 @@
   app_server_packages:
     - python2.7-dev
     - libpq-dev
-    - libxslt1-dev
-    - libxml2-dev
     - libmemcached-dev
     - supervisor
     - mercurial
+    - git
     - build-essential
-    - libevent-1.4-2
-    - libevent-core-1.4-2
-    - libevent-extra-1.4-2
-    - libevent-dev
-    - zip
-    - gettext
-    - ntp
     - stunnel4
     - pgbouncer
