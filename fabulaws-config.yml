@@ -31,7 +31,7 @@
   wsgi_app: fabutest.wsgi:application
   requirements_file: requirements.txt
   requirements_sdists:
-  settings_migrations: fabutest.local_settings
+  settings_managepy: fabutest.local_settings
   static_html:
     upgrade_message: deployment/templates/html/503.html
     healthcheck_override: deployment/templates/html/healthcheck.html
