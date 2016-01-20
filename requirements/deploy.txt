@@ -1,0 +1,3 @@
+pyyaml==3.11
+fabric==1.10.2
+argyle==0.2.1
