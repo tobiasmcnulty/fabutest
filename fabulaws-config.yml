@@ -27,7 +27,7 @@
   ssh_keys: deployment/users/
   password_names: [database_password, broker_password, smtp_password,
                    newrelic_license_key, newrelic_api_key]
-  project: sam
+  project: fabutest
   settings_migrations: fabutest.settings_production
   static_html:
     upgrade_message: deployment/templates/html/503.html
