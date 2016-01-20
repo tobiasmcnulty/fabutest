@@ -29,7 +29,7 @@
                    newrelic_license_key, newrelic_api_key, s3_secret]
   project: fabutest
   wsgi_app: fabutest.wsgi:application
-  requirements_file: requirements.txt
+  requirements_file: requirements/app.txt
   requirements_sdists:
   settings_managepy: fabutest.local_settings
   static_html:
