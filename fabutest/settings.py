@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'storages',
     'compressor',
+    'djcelery',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -104,6 +105,12 @@ USE_L10N = True
 
 USE_TZ = True
 
+# celery settings
+import djcelery
+from celery.schedules import crontab
+djcelery.setup_loader()
+
+CELERY_SEND_TASK_ERROR_EMAILS = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
