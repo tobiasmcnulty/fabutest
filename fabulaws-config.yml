@@ -69,7 +69,7 @@
     production:
     - 
     staging:
-    - 
+    - dualstack.fabutest-staging-elb1-1457617392.us-east-1.elb.amazonaws.com
     testing:
     - dualstack.fabutest-testing-1-463114995.us-east-1.elb.amazonaws.com
 
