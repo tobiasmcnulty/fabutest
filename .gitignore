@@ -3,3 +3,4 @@
 aws.sh
 fabsecrets.py
 *~
+*.out
