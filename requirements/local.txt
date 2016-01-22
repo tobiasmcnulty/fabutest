@@ -1,4 +1,5 @@
 -r app.txt
+fabulaws==0.3.0a1
 pyyaml==3.11
 fabric==1.10.2
 argyle==0.2.1
